@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- 模块化 -->
+    <script src="./app.js" type="module"></script>
+
+    <!-- error 使用live server
+    Access to script at 'file:///D:/front_project/es6/app.js' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app. -->
+
+    <!-- 直接使用 注意 type="module" -->
+    <script type="module">
+      // 使用xxx.js的内容
+      import * as m1 from "./xxx.js";
+
+      console.log(`output->m1.PI`, m1.PI);
+
+      let res = m1.sum(2, 3);
+      console.log(`output->res`, res);
+
+      let p1 = new m1.Person("zs", 22);
+      p1.eat("hot pot");
+    </script>
+  </head>
+  <body></body>
+</html>

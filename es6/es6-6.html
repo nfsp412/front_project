@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //语法糖
+      class Person {
+        // 属性
+        #n;
+        age;
+        get name() {
+          return this.#n;
+        }
+        set name(n) {
+          this.#n = n;
+        }
+
+        eat(food) {
+          console.log(`output->food`, food);
+        }
+
+        static sum(a, b) {
+          return a + b;
+        }
+
+        constructor(name, age) {
+          this.#n = name;
+          this.age = age;
+        }
+      }
+
+      //
+      let p1 = new Person("zs", 18);
+      console.log(`output->p1.name`, p1.name);
+      //   console.log(`output->p1.#n`,p1.#n)//private error
+
+      p1.eat("hot pot");
+
+      console.log(`output->Person.sum(1,3)`, Person.sum(1, 3));
+
+      //
+      class Student extends Person {
+        grade;
+        score;
+        study() {}
+        constructor(name, age) {
+          super(name, age);
+        }
+      }
+
+      //
+      let s1 = new Student("ls", 22);
+      s1.eat("rice");
+    </script>
+  </head>
+  <body></body>
+</html>
