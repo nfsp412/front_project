@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- dom 
+    增删改查元素节点
+    操作属性,样式,文本 -->
+
+    <script>
+      function add1() {
+        let li1 = window.document.createElement("li");
+        li1.id = "cs";
+        li1.innerText = "changsha";
+
+        let cty = window.document.getElementById("city");
+
+        cty.appendChild(li1);
+      }
+
+      let add2 = () => {
+        let li1 = document.createElement("li");
+        li1.id = "cs1";
+        li1.innerText = "cs111";
+
+        let cit = document.getElementById("city");
+        let sh = document.getElementById("sh");
+
+        cit.insertBefore(li1, sh);
+      };
+
+      const replace = () => {
+        let li1 = document.createElement("li");
+        li1.id = "cs1";
+        li1.innerText = "cs111";
+
+        let cit = document.getElementById("city");
+        let sh = document.getElementById("sh");
+
+        cit.replaceChild(li1, sh);
+      };
+
+      const del = () => {
+        let sh1 = document.getElementById("sh");
+        sh1.remove();
+      };
+
+      //?
+      const clear = () => {
+        let cit = document.getElementById("city");
+        // cit.remove()
+        // cit.innerHTML = "";
+      };
+    </script>
+  </head>
+  <body>
+    <ul id="city">
+      <li id="bj">beijing</li>
+      <li id="sh">shanghai</li>
+    </ul>
+
+    <button onclick="add1()">add</button>
+    <button onclick="add2()">add</button>
+    <button onclick="replace()">replace</button>
+    <button onclick="del()">del</button>
+    <button onclick="clear()">clear</button>
+  </body>
+</html>
