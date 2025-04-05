@@ -36,6 +36,16 @@ const data = {
   name: "Asuka1111",
   url: "https://github.com/nfsp412",
 };
+
+// v-on监听dom事件
+let cnt = ref(0);
+let add = () => {
+  cnt.value++;
+};
+let incr = (event) => {
+  cnt.value++;
+  event.preventDefault();
+};
 </script>
 
 <template>
@@ -61,9 +71,20 @@ const data = {
     <span v-html="redMsg"></span><br />
     <span v-html="greenMsg"></span><br />
 
-    <a v-bind:href="data.url" target="_self">URL</a><br />
+    <a v-bind:href="data.url" target="_self" @click.prevent="cnt++">URL</a
+    ><br />
     <a :href="data.url" target="_self">URL</a><br />
     <input type="button" v-bind:value="`点击${data.name}`" />
+
+    <h1>cnt值{{ cnt }}</h1>
+    <button v-on:click="add()">add</button><br />
+    <button @click="cnt++">add</button><br />
+    <button @click.once="add()">add</button><br />
+    <a href="https://github.com/nfsp412" @click.prevent="cnt++">prevent</a
+    ><br />
+    <a href="https://github.com/nfsp412">prevent</a><br />
+    <!-- 推荐下面写法 原生js -->
+    <a href="https://github.com/nfsp412" @click="incr($event)">prevent</a><br />
   </div>
 </template>
 
