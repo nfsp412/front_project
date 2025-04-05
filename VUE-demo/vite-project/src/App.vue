@@ -30,6 +30,12 @@ function compute() {
 // v-text和v-html
 let redMsg = "<font color='red'>msg</font>";
 let greenMsg = `<font color=\'green\'>${msg}</font>`;
+
+// v-bind渲染元素的属性
+const data = {
+  name: "Asuka1111",
+  url: "https://github.com/nfsp412",
+};
 </script>
 
 <template>
@@ -54,6 +60,10 @@ let greenMsg = `<font color=\'green\'>${msg}</font>`;
     <span v-text="bee.split(' ').reverse().join('=')"></span><br />
     <span v-html="redMsg"></span><br />
     <span v-html="greenMsg"></span><br />
+
+    <a v-bind:href="data.url" target="_self">URL</a><br />
+    <a :href="data.url" target="_self">URL</a><br />
+    <input type="button" v-bind:value="`点击${data.name}`" />
   </div>
 </template>
 
