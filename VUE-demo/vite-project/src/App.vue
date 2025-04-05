@@ -1,5 +1,5 @@
 <script type="module" setup>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 let counter = ref(1);
 function increase() {
   counter.value++;
@@ -7,6 +7,10 @@ function increase() {
 function decrease() {
   counter.value--;
 }
+// vue3默认非响应式
+const show = () => {
+  alert(counter.value);
+};
 
 // 插值表达式
 let msg = "hello vue3";
@@ -46,6 +50,20 @@ let incr = (event) => {
   cnt.value++;
   event.preventDefault();
 };
+
+// reactive关键字 ref关键字
+let dt = reactive({
+  c: 0,
+});
+const s = () => {
+  alert(dt.c);
+};
+let a = () => {
+  dt.c++;
+};
+let i = () => {
+  dt.c--;
+};
 </script>
 
 <template>
@@ -53,6 +71,7 @@ let incr = (event) => {
     <button @click="decrease()">-</button>
     {{ counter }}
     <button @click="increase()">+</button>
+    <button @click="show()">show</button>
 
     <h1>{{ msg }}</h1>
     {{ getMsg() }} <br />
@@ -85,6 +104,10 @@ let incr = (event) => {
     <a href="https://github.com/nfsp412">prevent</a><br />
     <!-- 推荐下面写法 原生js -->
     <a href="https://github.com/nfsp412" @click="incr($event)">prevent</a><br />
+
+    <button @click="i()">-</button>
+    {{ dt.c }}
+    <button @click="a()">+</button>
   </div>
 </template>
 
