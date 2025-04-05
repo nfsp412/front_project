@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script> -->
+    <script src="./vue.js"></script>
+
+    <div id="app">
+      <h1 v-bind:style="colorStyle">{{headline}}</h1>
+      <p v-text="article"></p>
+      <input v-bind:type="inputType" value="hello3" />
+      <button @click="sayHello()">btn1</button>
+      <button @click="f1()">btn2</button>
+    </div>
+
+    <script>
+      function f1() {
+        console.log("f1");
+      }
+
+      // 固定写法
+      const app = Vue.createApp({
+        setup() {
+          // vue3中,数据默认不是响应式的,需要加ref或者reactive处理
+          let headline = "hello vue3 local";
+          let colorStyle = { color: "green" };
+          let article = "text article";
+          let inputType = "text";
+          let sayHello = () => {
+            alert("hello 3");
+          };
+
+          // 在setup函数中,return返回的数据和函数可以在html使用
+          return {
+            headline,
+            colorStyle,
+            article,
+            inputType,
+            sayHello,
+            f1,
+          };
+        },
+      });
+
+      //挂载
+      app.mount("#app");
+    </script>
+  </body>
+</html>
