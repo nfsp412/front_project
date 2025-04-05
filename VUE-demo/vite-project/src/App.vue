@@ -1,21 +1,12 @@
-<script type="module">
+<script type="module" setup>
 import { ref } from "vue";
-export default {
-  setup() {
-    let counter = ref(1);
-    function increase() {
-      counter.value++;
-    }
-    function decrease() {
-      counter.value--;
-    }
-    return {
-      counter,
-      increase,
-      decrease,
-    };
-  },
-};
+let counter = ref(1);
+function increase() {
+  counter.value++;
+}
+function decrease() {
+  counter.value--;
+}
 </script>
 
 <template>
