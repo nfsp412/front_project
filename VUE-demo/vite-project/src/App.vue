@@ -78,6 +78,15 @@ let i1 = () => {
   ct.value--;
 };
 // let {counter,names} = toRefs(dt2) //toRefs用法
+
+// 条件渲染 v-if&v-else&v-show
+// v-show直接修改 style="display: none;"属性 不能搭配v-else 不能直接用在template元素 在DOM渲染中保留了元素的
+// v-if 惰性 真实按照条件渲染 
+let flg1 = ref(true);
+let flg11 = () => {
+  flg1.value = false;
+};
+
 </script>
 
 <template>
@@ -122,13 +131,18 @@ let i1 = () => {
     <button @click="i()">-</button>
     {{ dt.c }}
     <button @click="a()">+</button>
-    <br>
+    <br />
 
     <button @click="i1()">-</button>
     {{ dt2.cnt }}
     {{ ct }}
     <button @click="a1()">+</button>
-    <br>
+    <br />
+
+    <h5 v-if="flg1">VUE3</h5>
+    <h5 v-else>No</h5>
+    <h5 v-show="flg1">VUE</h5>
+    <button @click="flg11()">if/else</button>
   </div>
 </template>
 
