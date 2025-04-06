@@ -81,12 +81,17 @@ let i1 = () => {
 
 // 条件渲染 v-if&v-else&v-show
 // v-show直接修改 style="display: none;"属性 不能搭配v-else 不能直接用在template元素 在DOM渲染中保留了元素的
-// v-if 惰性 真实按照条件渲染 
+// v-if 惰性 真实按照条件渲染
 let flg1 = ref(true);
 let flg11 = () => {
   flg1.value = false;
 };
 
+// 列表渲染 v-for
+let dt3 = reactive([
+  { id: 1, nm: "zs" },
+  { id: 2, nm: "ls" },
+]);
 </script>
 
 <template>
@@ -143,6 +148,11 @@ let flg11 = () => {
     <h5 v-else>No</h5>
     <h5 v-show="flg1">VUE</h5>
     <button @click="flg11()">if/else</button>
+    <br />
+
+    <ul>
+      <li v-for="(i, index) in dt3">{{ index }}=>{{ i.id }} {{ i.nm }}</li>
+    </ul>
   </div>
 </template>
 
