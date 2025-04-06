@@ -1,5 +1,5 @@
 <script type="module" setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, toRef, toRefs } from "vue";
 let counter = ref(1);
 function increase() {
   counter.value++;
@@ -64,6 +64,20 @@ let a = () => {
 let i = () => {
   dt.c--;
 };
+
+// toRefs toRef 关键字
+let dt2 = reactive({
+  cnt: 0,
+  name: "test",
+});
+let ct = toRef(dt2, "cnt");
+let a1 = () => {
+  dt2.cnt++;
+};
+let i1 = () => {
+  ct.value--;
+};
+// let {counter,names} = toRefs(dt2) //toRefs用法
 </script>
 
 <template>
@@ -108,6 +122,13 @@ let i = () => {
     <button @click="i()">-</button>
     {{ dt.c }}
     <button @click="a()">+</button>
+    <br>
+
+    <button @click="i1()">-</button>
+    {{ dt2.cnt }}
+    {{ ct }}
+    <button @click="a1()">+</button>
+    <br>
   </div>
 </template>
 
