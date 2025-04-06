@@ -1,5 +1,5 @@
 <script type="module" setup>
-import { ref, reactive, toRef, toRefs } from "vue";
+import { ref, reactive, toRef, toRefs, computed } from "vue";
 let counter = ref(1);
 function increase() {
   counter.value++;
@@ -102,6 +102,16 @@ let user = reactive({
   pro: null,
 });
 let hbs = ref([]);
+
+//属性计算 为了避免太多逻辑直接写在模板表达式中 引入属性计算的概念
+//即使用computed 将逻辑封装到该方法中,然后将返回的结果在插值表达式中进行引用展示等等
+//computed方法返回的结果是一个ref 所以和普通定义的ref使用起来一样
+//多个标签进行多次引用只会调用一次 (在属性值没发生改变的时候)
+let cnt1 = ref(0);
+let res1 = computed(() => {
+  console.log("computed res1");
+  return cnt1.value > 5 ? "大于5" : "小于5";
+});
 </script>
 
 <template>
@@ -179,6 +189,11 @@ let hbs = ref([]);
     <br />
     {{ user }}
     {{ hbs }}
+    <br />
+
+    {{ res1 }} <br />
+    {{ cnt1 }} <br />
+    <button @click="cnt1++">btn</button> <br />
   </div>
 </template>
 
