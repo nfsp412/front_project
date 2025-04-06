@@ -92,6 +92,16 @@ let dt3 = reactive([
   { id: 1, nm: "zs" },
   { id: 2, nm: "ls" },
 ]);
+
+//双向绑定 v-model 即DOM树的用户操作也会影响到响应式数据 针对表单标签的
+//应用在例如input textarea select标签
+let user = reactive({
+  username: null,
+  password: null,
+  introduce: null,
+  pro: null,
+});
+let hbs = ref([]);
 </script>
 
 <template>
@@ -153,6 +163,22 @@ let dt3 = reactive([
     <ul>
       <li v-for="(i, index) in dt3">{{ index }}=>{{ i.id }} {{ i.nm }}</li>
     </ul>
+    <br />
+
+    username: <input type="text" v-model="user.username" /><br />
+    password: <input type="text" v-model="user.password" /><br />
+    简介: <textarea v-model="user.introduce"></textarea><br />
+    选项:
+    <select v-model="user.pro">
+      <option value="1">A</option>
+      <option value="2">B</option>
+    </select>
+    hbs:
+    <input type="checkbox" name="hbss" v-model="hbs" value="eat" />EAT
+    <input type="checkbox" name="hbss" v-model="hbs" value="drink" />DRINK
+    <br />
+    {{ user }}
+    {{ hbs }}
   </div>
 </template>
 
