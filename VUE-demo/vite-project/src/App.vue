@@ -1,5 +1,13 @@
 <script type="module" setup>
-import { ref, reactive, toRef, toRefs, computed } from "vue";
+import {
+  ref,
+  reactive,
+  toRef,
+  toRefs,
+  computed,
+  watch,
+  watchEffect,
+} from "vue";
 let counter = ref(1);
 function increase() {
   counter.value++;
@@ -112,6 +120,27 @@ let res1 = computed(() => {
   console.log("computed res1");
   return cnt1.value > 5 ? "大于5" : "小于5";
 });
+
+//监听器 响应式数据发生改变时触发回调函数
+//监听ref或者监听reactive
+//使用 watch 或者 watchEffect
+let w1 = ref("");
+let w2 = reactive({ name: "" });
+// watch(w1, (newV, oldV) => {
+//   console.log(`${oldV}=>${newV}`);
+//   w3.value = w1.value + w2.name;
+// });
+// watch(
+//   () => w2.name,
+//   (newV, oldV) => {
+//     console.log(`${oldV}=>${newV}`);
+//     w3.value = w1.value + w2.name;
+//   }
+// );
+let w3 = ref("");//w3声明的位置如何影响的watchEffect watch生效
+watchEffect(() => {
+  w3.value = w1.value + w2.name;
+});
 </script>
 
 <template>
@@ -194,6 +223,10 @@ let res1 = computed(() => {
     {{ res1 }} <br />
     {{ cnt1 }} <br />
     <button @click="cnt1++">btn</button> <br />
+
+    w3: {{ w3 }} <br />
+    w1: <input type="text" v-model="w1" /> <br />
+    w2: <input type="text" v-model="w2.name" /> <br />
   </div>
 </template>
 
