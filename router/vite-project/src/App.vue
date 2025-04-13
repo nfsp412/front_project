@@ -29,6 +29,9 @@ function receiver(data) {
  *  路径参数-声明式路由
  *  路径参数-编程式路由
  *  键值对参数-声明式路由
+ *  键值对参数-编程式路由
+ * 
+ * 路由守卫 router.beforeEach
  */
 </script>
 

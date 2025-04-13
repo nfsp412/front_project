@@ -7,6 +7,7 @@ import Schedule from "../components/navi/Schedule.vue";
 import Home from "../components/navi/Home.vue";
 import ShowDetail from "../components/navi/ShowDetail.vue";
 import ShowKV from "../components/navi/ShowKV.vue";
+import Login from "../components/Login.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -48,7 +49,27 @@ const router = createRouter({
       path: "/showKV",
       component: ShowKV,
     },
+    {
+      path: "/login",
+      component: Login,
+    },
   ],
+});
+
+// 路由的全局前置守卫
+router.beforeEach((to, from, next) => {
+  console.log(to.path, from.path, next);
+
+  if (to.path == "/login") {
+    next();
+  } else {
+    let username = window.localStorage.getItem("username");
+    if (username != null) {
+      next();
+    } else {
+      next("/login");
+    }
+  }
 });
 
 export default router;
