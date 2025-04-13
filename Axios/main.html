@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Promise
+      //   ES6语法
+      let promise = new Promise(function (resolve, reject) {
+        console.log("promise code");
+        // resolve("success");
+        // reject("error");
+        throw new Error("error!");
+      });
+      promise
+        .then(
+          function (value) {
+            console.log(`promise resolve ${value}`);
+          }
+          // function (error) {
+          //   console.log(`promise reject ${error}`);
+          // }
+        )
+        .catch(function (error) {
+          console.log(`promise reject ${error}`);
+        });
+      console.log("other code");
+    </script>
+  </body>
+</html>
