@@ -11,6 +11,8 @@
     <router-link to="/import">导入模块</router-link><br />
     <router-link to="/export">导出模块</router-link><br />
     <router-link to="/schedule">调度模块</router-link><br />
+
+    <button @click="toQuery()">查询模块(编程式路由)</button>
   </div>
 </template>
 
@@ -21,6 +23,17 @@ const emits = defineEmits(["sendMenu"]); //和 sendMenu 保持一致
 function send(data) {
   emits("sendMenu", data); //和 sendMenu 保持一致
 }
+
+//编程式路由
+import { useRouter } from "vue-router";
+import { ref } from "vue";
+let router = useRouter();
+let routePath = ref("");
+let toQuery = () => {
+  router.push({
+    path: "/query",
+  });
+};
 </script>
 
 <style scoped></style>

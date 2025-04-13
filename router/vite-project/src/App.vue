@@ -22,6 +22,8 @@ function receiver(data) {
  * router.js
  * app.use挂载
  * 重定向 redirect
+ * 
+ * 编程式路由
  */
 </script>
 
