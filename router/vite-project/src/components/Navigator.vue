@@ -26,6 +26,10 @@
     <router-link v-bind:to="{ path: '/showKV', query: { id: 1, lang: 'zh' } }"
       >路由传参-键值对参数-声明式路由</router-link
     ><br />
+
+    <button @click="showKV(2, 'us')">
+      路由传参-键值对参数-编程式路由</button
+    ><br />
   </div>
 </template>
 
@@ -59,6 +63,17 @@ let showDetail = (username, password) => {
     },
   });
 };
+
+//路由传参 键值对参数 编程式路由
+let showKV = (id,lang) => {
+  router.push({
+    path: "/showKV", 
+    query: {
+      id: id,
+      lang: lang,
+    },
+  });
+}
 </script>
 
 <style scoped></style>
