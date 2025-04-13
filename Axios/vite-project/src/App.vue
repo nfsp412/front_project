@@ -1,24 +1,18 @@
 <script setup>
-import axios from "axios";
 import { onMounted, reactive } from "vue";
 let jsonData = reactive({
   code: null,
   content: null,
 });
-let getMsg = async () => {
-  try {
-    return await axios({
-      method: "post",
-      url: "https://api.uomg.com/api/rand.qinghua?format=json",
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
+import getMsg from "./api/index.js";
 let getMessage = async () => {
-  let { data } = await getMsg();
-  console.log(data);
-  Object.assign(jsonData, data);
+  try {
+    let { data } = await getMsg();
+    console.log(data);
+    Object.assign(jsonData, data);
+  } catch (error) {
+    console.log('Error: ' + error);
+  }
 };
 onMounted(() => {
   getMessage();
