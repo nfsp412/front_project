@@ -15,7 +15,13 @@
 
     <button @click="toQuery()">查询模块(编程式路由)</button><br />
 
-    <router-link to="/showDetail/zs/123">路由传参-路径参数-声明式路由</router-link><br>
+    <router-link to="/showDetail/zs/123"
+      >路由传参-路径参数-声明式路由</router-link
+    ><br />
+
+    <button @click="showDetail('ls', '456')">
+      路由传参-路径参数-编程式路由
+    </button>
   </div>
 </template>
 
@@ -35,6 +41,18 @@ let routePath = ref("");
 let toQuery = () => {
   router.push({
     path: "/query",
+  });
+};
+
+//路由传参 路径参数 编程式路由
+import { useRoute } from "vue-router";
+let showDetail = (username, password) => {
+  router.push({
+    name: "showDetail", //和 showDetail 保持一致
+    params: {
+      username: username,
+      password: password,
+    },
   });
 };
 </script>

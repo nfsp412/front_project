@@ -41,6 +41,7 @@ const router = createRouter({
     {
       path: "/showDetail/:username/:password",
       component: ShowDetail,
+      name: "showDetail",//和 showDetail 保持一致
     },
   ],
 });
