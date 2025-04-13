@@ -21,7 +21,10 @@ const router = createRouter({
       path: "/query",
       component: Query,
     },
-    
+    {
+      path: "/queryModule",
+      redirect: "/query",
+    },
     {
       path: "/import",
       component: Import,
