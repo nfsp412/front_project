@@ -7,6 +7,9 @@ import {
   computed,
   watch,
   watchEffect,
+  onMounted,
+  onBeforeUpdate,
+  onUpdated,
 } from "vue";
 let counter = ref(1);
 function increase() {
@@ -137,9 +140,30 @@ let w2 = reactive({ name: "" });
 //     w3.value = w1.value + w2.name;
 //   }
 // );
-let w3 = ref("");//w3声明的位置如何影响的watchEffect watch生效
+let w3 = ref(""); //w3声明的位置如何影响的watchEffect watch生效
 watchEffect(() => {
   w3.value = w1.value + w2.name;
+});
+
+//生命周期 运行生命周期钩子函数
+//组件挂载后 onMounted
+//组件因为响应式变更从而更新DOM后调用 onUpdated
+let message = ref("hello");
+onMounted(() => {
+  console.log("onMounted");
+  let span1 = document.getElementById("span1");
+  console.log(span1.innerText);
+});
+onBeforeUpdate(() => {
+  console.log("onBeforeUpdate");
+  console.log(message.value); //响应式更新的,即实时更新
+  let span1 = document.getElementById("span1");
+  console.log(span1.innerText); //此时还没更改
+});
+onUpdated(() => {
+  console.log("onUpdated");
+  let span1 = document.getElementById("span1");
+  console.log(span1.innerText); //此时发生了更改  即更新完成了
 });
 </script>
 
@@ -227,6 +251,9 @@ watchEffect(() => {
     w3: {{ w3 }} <br />
     w1: <input type="text" v-model="w1" /> <br />
     w2: <input type="text" v-model="w2.name" /> <br />
+
+    <span id="span1" v-text="message"></span>
+    <input type="text" v-model="message" />
   </div>
 </template>
 
