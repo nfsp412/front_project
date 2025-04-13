@@ -9,24 +9,36 @@
     <script>
       // Promise
       //   ES6语法
-      let promise = new Promise(function (resolve, reject) {
-        console.log("promise code");
-        // resolve("success");
-        // reject("error");
-        throw new Error("error!");
-      });
-      promise
-        .then(
-          function (value) {
-            console.log(`promise resolve ${value}`);
-          }
-          // function (error) {
-          //   console.log(`promise reject ${error}`);
-          // }
-        )
-        .catch(function (error) {
-          console.log(`promise reject ${error}`);
-        });
+      //   let promise = new Promise(function (resolve, reject) {
+      //     console.log("promise code");
+      //     // resolve("success");
+      //     // reject("error");
+      //     throw new Error("error!");
+      //   });
+      //   promise
+      //     .then(
+      //       function (value) {
+      //         console.log(`promise resolve ${value}`);
+      //       }
+      //       // function (error) {
+      //       //   console.log(`promise reject ${error}`);
+      //       // }
+      //     )
+      //     .catch(function (error) {
+      //       console.log(`promise reject ${error}`);
+      //     });
+
+      //async和await改写
+      const func1 = async () => {
+        try {
+          //   let res = await Promise.reject("error");
+          let res = await Promise.resolve("success");
+          console.log(res);
+        } catch (e) {
+          console.log(e);
+        }
+      };
+      func1();
       console.log("other code");
     </script>
   </body>
