@@ -5,6 +5,7 @@ import Import from "../components/navi/Import.vue";
 import Export from "../components/navi/Export.vue";
 import Schedule from "../components/navi/Schedule.vue";
 import Home from "../components/navi/Home.vue";
+import ShowDetail from "../components/navi/ShowDetail.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -36,6 +37,10 @@ const router = createRouter({
     {
       path: "/schedule",
       component: Schedule,
+    },
+    {
+      path: "/showDetail/:username/:password",
+      component: ShowDetail,
     },
   ],
 });

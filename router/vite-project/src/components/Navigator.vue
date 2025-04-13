@@ -7,12 +7,15 @@
       <li>调度模块</li>
     </ul> -->
 
-    <router-link to="/query" @click="send('查询模块')">查询模块</router-link><br />
+    <router-link to="/query" @click="send('查询模块')">查询模块</router-link
+    ><br />
     <router-link to="/import">导入模块</router-link><br />
     <router-link to="/export">导出模块</router-link><br />
     <router-link to="/schedule">调度模块</router-link><br />
 
-    <button @click="toQuery()">查询模块(编程式路由)</button>
+    <button @click="toQuery()">查询模块(编程式路由)</button><br />
+
+    <router-link to="/showDetail/zs/123">路由传参-路径参数-声明式路由</router-link><br>
   </div>
 </template>
 

@@ -23,7 +23,9 @@ function receiver(data) {
  * app.use挂载
  * 重定向 redirect
  * 
- * 编程式路由
+ * 编程式路由 useRouter
+ * 
+ * 路由传参 useRoute
  */
 </script>
 
@@ -46,13 +48,13 @@ function receiver(data) {
   border: 1px solid red;
 }
 .navigator {
-  width: 15%;
+  width: 30%;
   height: 400px;
   border: 1px blue solid;
   float: left;
 }
 .content {
-  width: 84%;
+  width: 69%;
   height: 400px;
   border: 1px goldenrod solid;
   float: right;
