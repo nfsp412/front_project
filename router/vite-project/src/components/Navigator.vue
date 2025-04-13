@@ -20,8 +20,12 @@
     ><br />
 
     <button @click="showDetail('ls', '456')">
-      路由传参-路径参数-编程式路由
-    </button>
+      路由传参-路径参数-编程式路由</button
+    ><br />
+
+    <router-link v-bind:to="{ path: '/showKV', query: { id: 1, lang: 'zh' } }"
+      >路由传参-键值对参数-声明式路由</router-link
+    ><br />
   </div>
 </template>
 

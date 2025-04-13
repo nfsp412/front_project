@@ -6,6 +6,7 @@ import Export from "../components/navi/Export.vue";
 import Schedule from "../components/navi/Schedule.vue";
 import Home from "../components/navi/Home.vue";
 import ShowDetail from "../components/navi/ShowDetail.vue";
+import ShowKV from "../components/navi/ShowKV.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -41,7 +42,11 @@ const router = createRouter({
     {
       path: "/showDetail/:username/:password",
       component: ShowDetail,
-      name: "showDetail",//和 showDetail 保持一致
+      name: "showDetail", //和 showDetail 保持一致
+    },
+    {
+      path: "/showKV",
+      component: ShowKV,
     },
   ],
 });

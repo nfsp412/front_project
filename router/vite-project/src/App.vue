@@ -22,10 +22,13 @@ function receiver(data) {
  * router.js
  * app.use挂载
  * 重定向 redirect
- * 
+ *
  * 编程式路由 useRouter
- * 
+ *
  * 路由传参 useRoute
+ *  路径参数-声明式路由
+ *  路径参数-编程式路由
+ *  键值对参数-声明式路由
  */
 </script>
 
