@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script type="module">
+      // Uncaught SyntaxError: The requested module './yyy.js' does not provide an export named 'default' (at es6-9.html:9:16)
+      // import PI from "./yyy.js"
+
+      import { PI } from "./yyy.js"; //要加{}
+      console.log(`output->PI`, PI);
+
+      //   Uncaught SyntaxError: Identifier 'PI' has already been declared (at es6-9.html:15:15)
+      //   import {PI} from "./yyy.js";
+
+      import { PI as pi } from "./yyy.js"; //要起别名不然无法重复导入
+      console.log(`output->pi`, pi);
+
+      import { Person, sum } from "./yyy.js";
+      let res = sum(2, 3);
+      console.log(`output->res`, res);
+
+      let p1 = new Person("zs", 22);
+      p1.eat("hot pot");
+    </script>
+  </head>
+  <body></body>
+</html>

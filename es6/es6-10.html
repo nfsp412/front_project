@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module">
+      // default相当于一个属性
+      import sum1 from "./zzz.js"; //sum1等价于{default as sum1}
+      let res = sum1(2, 3);
+      console.log(`output->res`, res);
+
+      import { Person } from "./zzz.js";
+      let p1 = new Person("zs", 22);
+      p1.eat("hot pot");
+    </script>
+  </head>
+  <body></body>
+</html>

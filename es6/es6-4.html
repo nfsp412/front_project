@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 箭头函数
+
+      let prt = (x) => console.log(`output->x`, x);
+      prt(1);
+
+      // this和箭头函数
+      let person = {
+        name: "zs",
+        show1: function () {
+          console.log(`output->this`, this); //指的是person
+          console.log(`output->this.name`, this.name);
+        },
+        show2: () => {
+          console.log(`output->this`, this); //指的是window
+          console.log(`output->this.name`, this.name);
+          console.log(`output->this.closed`, this.closed);
+        },
+      };
+      person.show1();
+      person.show2();
+    </script>
+  </head>
+  <body></body>
+</html>

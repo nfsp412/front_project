@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      // 解构表达式
+      let [a, b, c, d = 4] = [1, 2, 3];
+      console.log(`output->a`, a);
+      console.log(`output->b`, b);
+      console.log(`output->c`, c);
+      console.log(`output->d`, d);
+
+      let { x1, x2 } = { x1: "zs", x2: "ls" };
+      console.log(`output->x1`, x1);
+      console.log(`output->x2`, x2);
+
+      function add([x, y]) {
+        return x + y;
+      }
+      console.log(`output->add([1,2])`, add([1, 2]));
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 深浅拷贝
+
+      //浅拷贝
+      let a1 = [1, 2, 3];
+      let p1 = {
+        name: "zs",
+        lan: a1,
+      };
+      let p2 = p1;
+      p2.name = "ls";
+      console.log(`output->p1.name`, p1.name); //ls
+
+      p2.lan.push(4);
+      console.log(`output->p1.lan`, p1.lan); //[1, 2, 3, 4]
+
+      //   深拷贝
+      let p3 = JSON.parse(JSON.stringify(p1));
+      p3.name = "www";
+      console.log(`output->p3.name`, p3.name); //www
+      console.log(`output->p1.name`, p1.name); //ls
+
+      p3.lan.push(55);
+      console.log(`output->p3.lan`, p3.lan); //[1, 2, 3, 4, 55]
+      console.log(`output->p1.lan`, p1.lan); //[1, 2, 3, 4]
+    </script>
+  </head>
+  <body></body>
+</html>

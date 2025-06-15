@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 可变参数rest
+      let f1 = (...args) => {
+        console.log(`output->args`, args);
+      };
+      f1(1, 2, 3); //数组
+
+      //可变参数spread
+      let f2 = (a, b, c) => {
+        console.log(`output->a,b,c`, a, b, c);
+      };
+      let a = [1, 2, 3];
+      f2(...a);
+
+      //spread 合并数组 合并对象属性
+    </script>
+  </head>
+  <body></body>
+</html>
